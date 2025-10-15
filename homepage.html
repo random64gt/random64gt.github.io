@@ -1,1 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Skylanders — Spyro's Adventure Resummoned</title>
+  <meta name="description" content="A fan-remake of the first game in the SKYLANDERS series.">
 
+  <style>
+    :root{
+      --accent:#3fb0f0;
+      --dark:#0b1020;
+      --muted:#9aa6bb;
+      --glass: rgba(255,255,255,0.06);
+      --card-radius:16px;
+      --max-width:1100px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#071023 0%, #061222 60%);color:#eaf3ff;min-height:100vh;}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px}
+
+    
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:44px}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:hover{background:var(--glass);color:var(--accent)}
+
+    
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:center;margin-top:18px}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.03), rgba(255,255,255,0.01));border-radius:20px;padding:28px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    .hero h1{font-size:38px;margin:0 0 8px}
+    .hero p{color:var(--muted);margin:0 0 16px}
+    .cta{display:inline-block;background:var(--accent);color:#052033;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700}
+
+    
+    .hero-image{border-radius:16px;overflow:hidden;height:100%;box-shadow:0 20px 40px rgba(0,0,0,0.6)}
+    .hero-image img{width:100%;height:100%;object-fit:cover;display:block}
+
+    
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+    .card{background:rgba(255,255,255,0.02);padding:12px;border-radius:14px;backdrop-filter:blur(6px)}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:10px}
+    .card h4{margin:10px 0 6px}
+    .card p{margin:0;color:var(--muted)}
+
+    
+    footer{margin-top:28px;padding:22px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
+    .platforms{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .platforms img{height:34px;filter:grayscale(0.05);opacity:0.95}
+    .footer-note{font-size:12px;color:var(--muted);margin-top:8px;text-align:right;width:100%;}
+
+    
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .hero-image{height:220px}
+      nav{display:none}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        
+        <img src="./Skylanders Spyro's Adventure Game - Official site_files/skylanders-logo.png" alt="Skylanders logo">
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#characters">Characters</a>
+        <a href="#where">Where to buy</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-card">
+          <h1>Skylanders: Spyro's Adventure Resummoned</h1>
+          <p>KAOS menaces the people of Skylands — become the Portal Master and save Skylands in this modern fan remake using original assets.</p>
+          <p style="margin-top:8px">Explore characters, view galleries, and discover where to get starter packs.</p>
+          <a class="cta" href="#gallery">Explore Gallery</a>
+
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+            <div style="background:rgba(255,255,255,0.03);padding:10px;border-radius:12px;min-width:120px">
+              <strong>Platform:</strong>
+              PC | Windows 7 - 11
+            </div>
+
+            <div style="background:rgba(255,255,255,0.03);padding:10px;border-radius:12px;min-width:160px">
+              <strong>Compatible:</strong>
+              <div style="color:var(--muted);margin-top:6px">Spyro's Adventure • Giants • Swap Force* • Trap Team • SuperChargers • Imaginators*</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image" aria-hidden="true">
+          
+          <img src="./Skylanders Spyro's Adventure Game - Official site_files/typeshit.png" alt="Skylanders header art">
+        </div>
+      </section>
+
+      <section id="gallery" style="margin-top:18px">
+        <h2 style="margin:0 0 12px">Gallery</h2>
+        <div class="gallery">
+
+          <article class="card">
+            <img src="./Skylanders Spyro's Adventure Game - Official site_files/ssa1.jpg" alt="Spyro screenshot 1">
+            <h4>Chop Chop!</h4>
+            <p>Arkeyan Swordsman with a stunning blue and gold color scheme.</p>
+          </article>
+
+          <article class="card">
+            <img src="./Skylanders Spyro's Adventure Game - Official site_files/ssa2.jpg" alt="Spyro screenshot 2">
+            <h4>Gill Grunt!</h4>
+            <p>Bring Gill Grunt to life, with the Portal of Power!</p>
+          </article>
+
+          <article class="card">
+            <img src="./Skylanders Spyro's Adventure Game - Official site_files/ssa3.jpg" alt="Spyro screenshot 3">
+            <h4>Battle!</h4>
+            <p>Use your elemental powers to defeat enemies!</p>
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <strong>Skylanders: Spyro's Adventure Resummoned</strong>
+        </div>
+
+        <div class="platforms" aria-hidden="false">
+          <img src="./Skylanders Spyro's Adventure Game - Official site_files/wii-u.png" alt="Wii U">
+          <img src="./Skylanders Spyro's Adventure Game - Official site_files/xbox-360.png" alt="Xbox 360">
+          <img src="./Skylanders Spyro's Adventure Game - Official site_files/n3ds-logo.png" alt="3DS">
+        </div>
+      </div>
+      <div class="footer-note" aria-hidden="false">
+      * Some figures may not be compatible.
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
