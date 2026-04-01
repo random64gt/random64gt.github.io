@@ -4,25 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download</title>
-
     <meta property="og:title" content="Download Skylanders Battlefield">
     <meta property="og:description" content="Click to download Skylanders Battlefield.">
     <meta property="og:image" content="battlefieldLogo.png">
     <meta property="og:url" content="https://behaviorhackstudios.com/games/battle-field">
     <meta property="og:type" content="website">
-
     <style>
         @font-face {
             font-family: 'CustomFont';
             src: url('Proxima Nova Black.otf') format('opentype');
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'CustomFont', Arial, sans-serif;
             background-image: url('../backgroundSSA.png');
@@ -30,86 +22,68 @@
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-
-            position: relative;
             color: white;
-
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
         }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0);
-            z-index: 1;
-        }
-
         .container {
             text-align: center;
             animation: fadeIn 1.2s ease-in;
             position: relative;
             z-index: 2;
         }
-
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-
+        .logo-wrap { margin-bottom: 30px; }
+        .logo-wrap img {
+            display: block;
+            margin: 0 auto;
+            transform-origin: center;
+        }
         .download-btn {
             font-size: 1.5em;
             padding: 20px 40px;
             border: none;
             border-radius: 12px;
             cursor: pointer;
-
             background: rgba(255, 255, 255, 0.15);
             color: white;
             backdrop-filter: blur(10px);
-
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-
             transition: all 0.3s ease;
         }
-
         .download-btn:hover {
             background: rgba(255, 255, 255, 0.25);
             transform: scale(1.05);
         }
-
-        .download-btn:active {
-            transform: scale(0.98);
-        }
-
+        .download-btn:active { transform: scale(0.98); }
         @media (max-width: 768px) {
-            .download-btn {
-                font-size: 1.2em;
-                padding: 15px 30px;
-            }
+            .download-btn { font-size: 1.2em; padding: 15px 30px; }
         }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <a href="Skylanders Battle-Field.zip" download>
+        <div class="logo-wrap">
+            <img id="logo" src="battlefield.png" alt="Battlefield Logo"
+                 style="width: calc(300px * var(--logo-scale, 1)); transform: scale(1);">
+        </div>
+        <a href="https://github.com/random64gt/random64gt.github.io/raw/refs/heads/main/games/Skylanders%20Battle-Field.zip?download=" download>
             <button class="download-btn">Download</button>
         </a>
     </div>
+
+    <script>
+        // Change this value to scale the logo (1 = default, 1.5 = 50% bigger, 0.5 = half size)
+        const logoScale = 1.0;
+
+        document.getElementById('logo').style.width = (300 * logoScale) + 'px';
+    </script>
 </body>
 </html>
