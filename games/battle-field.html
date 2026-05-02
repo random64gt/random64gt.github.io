@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download</title>
+    <title>Lost Media</title>
     <meta property="og:title" content="Download Skylanders Battlefield">
     <meta property="og:description" content="Click to download Skylanders Battlefield.">
     <meta property="og:image" content="battlefieldLogo.png">
@@ -11,13 +11,13 @@
     <meta property="og:type" content="website">
     <style>
         @font-face {
-            font-family: 'CustomFont';
-            src: url('Proxima Nova Black.otf') format('opentype');
+          	font-family: 'CustomFont';
+ 		src: url('../Proxima Nova Black.otf') format('opentype');
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'CustomFont', Arial, sans-serif;
-            background-image: url('../backgroundSSA.png');
+            background-image: url('../Background_BF.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -39,11 +39,19 @@
             from { opacity: 0; transform: translateY(30px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-        .logo-wrap { margin-bottom: 30px; }
+        .logo-wrap { margin-bottom: 20px; }
         .logo-wrap img {
             display: block;
             margin: 0 auto;
             transform-origin: center;
+        }
+        .logo-description {
+            font-size: 1.4em;
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
         }
         .download-btn {
             font-size: 1.5em;
@@ -65,6 +73,7 @@
         .download-btn:active { transform: scale(0.98); }
         @media (max-width: 768px) {
             .download-btn { font-size: 1.2em; padding: 15px 30px; }
+            .logo-description { font-size: 1.2em; padding: 0 20px; }
         }
     </style>
 </head>
@@ -74,15 +83,11 @@
             <img id="logo" src="battlefield.png" alt="Battlefield Logo"
                  style="width: calc(300px * var(--logo-scale, 1)); transform: scale(1);">
         </div>
-        <a href="https://github.com/random64gt/random64gt.github.io/raw/refs/heads/main/games/Skylanders%20Battle-Field.zip?download=" download>
-            <button class="download-btn">Download</button>
-        </a>
+        <p class="logo-description">The April Fools Game that only existed for 12 Hours. (Don't worry, you didn't miss out on anything. I may reupload it in the future.) Thank you to the very very few who got to experience it. I kindly ask that you delete it and never talk about it again! </p>
     </div>
-
     <script>
         // Change this value to scale the logo (1 = default, 1.5 = 50% bigger, 0.5 = half size)
         const logoScale = 2.0;
-
         document.getElementById('logo').style.width = (300 * logoScale) + 'px';
     </script>
 </body>
