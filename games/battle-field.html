@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skylanders Battlefield</title>
+    <meta property="og:title" content="Skylanders Battlefield - Behavior Hack Studios">
+    <meta property="og:description" content="Learn More about Skylanders Battlefield by Behavior Hack Studios - Released April 1st 2026 NO LONGER AVAILABLE">
+    <meta property="og:image" content="battlefieldLogo.png">
+    <meta property="og:url" content="https://behaviorhackstudios.com/games/battle-field">
+    <meta property="og:type" content="website">
+    <style>
+        @font-face {
+          	font-family: 'CustomFont';
+ 		src: url('../Proxima Nova Black.otf') format('opentype');
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'CustomFont', Arial, sans-serif;
+            background-image: url('../Background_BF.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            animation: fadeIn 1.2s ease-in;
+            position: relative;
+            z-index: 2;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .logo-wrap { margin-bottom: 20px; }
+        .logo-wrap img {
+            display: block;
+            margin: 0 auto;
+            transform-origin: center;
+        }
+        .logo-description {
+            font-size: 1.4em;
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+        }
+        .download-btn {
+            font-size: 1.5em;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+        .download-btn:active { transform: scale(0.98); }
+        @media (max-width: 768px) {
+            .download-btn { font-size: 1.2em; padding: 15px 30px; }
+            .logo-description { font-size: 1.2em; padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-wrap">
+            <img id="logo" src="battlefield.png" alt="Battlefield Logo"
+                 style="width: calc(300px * var(--logo-scale, 1)); transform: scale(1);">
+        </div>
+        <p class="logo-description">The April Fools Game that only existed for 12 Hours. (Don't worry, you didn't miss out on anything. I may reupload it in the future.) </p>
+    </div>
+    <script>
+        // Change this value to scale the logo (1 = default, 1.5 = 50% bigger, 0.5 = half size)
+        const logoScale = 2.0;
+        document.getElementById('logo').style.width = (300 * logoScale) + 'px';
+    </script>
+</body>
+</html>
