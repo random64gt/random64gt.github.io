@@ -98,12 +98,12 @@
 
     @media (max-width:880px){
       .hero{grid-template-columns:1fr;}
-      .hero-image{height:auto;aspect-ratio:16/9;width:100%}
+      .hero-image{height:auto;aspect-ratio:auto;width:100%}
+      .hero-image img{height:auto;object-fit:contain}
       nav{display:none}
     }
 
     @media (max-width:480px){
-      .hero-image{aspect-ratio:4/3}
       .hero h1{font-size:28px}
     }
 
