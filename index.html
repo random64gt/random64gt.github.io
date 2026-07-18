@@ -98,8 +98,13 @@
 
     @media (max-width:880px){
       .hero{grid-template-columns:1fr;}
-      .hero-image{height:220px}
+      .hero-image{height:auto;aspect-ratio:16/9;width:100%}
       nav{display:none}
+    }
+
+    @media (max-width:480px){
+      .hero-image{aspect-ratio:4/3}
+      .hero h1{font-size:28px}
     }
 
   </style>
