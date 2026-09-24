@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -18,312 +18,263 @@
 
 <meta name="twitter:card" content="summary_large_image">
 
-  <style>
-    :root{
-      --accent:#ae90d1;
-      --dark:#0b1020;
-      --muted:#9aa6bb;
-      --glass: rgba(255,255,255,0.06);
-      --card-radius:16px;
-      --max-width:1100px;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+<style>
+  :root {
+    --bg: #090A0E;
+    --bg-raised: #12141C;
+    --ink: #E9EAF0;
+    --ink-dim: #8B8FA3;
+    --accent: #4658E8;
+    --accent-dim: #2A3466;
+    --line: #21232E;
+    --sans: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+    --body: 'Inter', -apple-system, sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-sizing: border-box;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.55;
+  }
+  a { color: inherit; }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 6vw;
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    mix-blend-mode: difference;
+  }
+  .mark { height: 20px; opacity: 0.9; }
+  nav { display: flex; gap: 30px; font-family: var(--sans); font-size: 0.9rem; }
+  nav a { text-decoration: none; color: var(--ink); opacity: 0.75; transition: opacity 0.15s; }
+  nav a:hover { opacity: 1; }
+
+  .hero {
+    position: relative;
+    height: 92vh;
+    min-height: 560px;
+    margin-top: -84px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('BHSCRYSTALS.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(9,10,14,0.55) 0%, rgba(9,10,14,0.25) 40%, rgba(9,10,14,0.96) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    width: 100%;
+    padding: 0 6vw 8vh;
+  }
+  .hero-logo {
+    width: min(640px, 72vw);
+    height: auto;
+    display: block;
+    margin-bottom: 26px;
+    filter: drop-shadow(0 2px 30px rgba(0,0,0,0.4));
+  }
+  .hero p.lede {
+    font-family: var(--body);
+    font-size: 1.1rem;
+    color: var(--ink-dim);
+    max-width: 44ch;
+    margin: 0;
+  }
+
+  section { padding: 10vh 6vw; border-top: 1px solid var(--line); }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .section-head h2 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 1.9rem;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .section-head span {
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+    max-width: 34ch;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+  }
+  .about-grid p { max-width: 58ch; color: var(--ink-dim); font-size: 1.02rem; }
+  .about-grid p + p { margin-top: 18px; }
+  .stats { display: flex; flex-direction: column; gap: 26px; }
+  .stat b {
+    display: block;
+    font-family: var(--sans);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .stat span { color: var(--ink-dim); font-size: 0.9rem; }
+
+  .projects { display: flex; flex-direction: column; }
+  .project {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    gap: 89px;
+    align-items: center;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+  }
+  .project:first-child { border-top: none; }
+  .thumb {
+    width: 250px;
+    height: 150px;
+    flex-shrink: 0;
+    background-color: var(--bg-raised);
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 0 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .thumb--cypy { background-image: url('ChompyPartyThumbnail.png'); }
+  .thumb--mystery { background-image: url('MysteryThumbnail.png'); }
+  .project-body h3 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .project-body p { margin: 0; color: var(--ink-dim); max-width: 52ch; font-size: 0.98rem; }
+  .project-meta {
+    text-align: right;
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    font-family: var(--sans);
+  }
+
+  footer {
+    padding: 8vh 6vw;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--ink-dim);
+    font-size: 0.88rem;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+
+  @media (max-width: 720px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .project {
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
-    *{box-sizing:border-box}
-      body {
-          margin: 0;
-          color: #eaf3ff;
-          min-height: 100vh;
-          background-image: url("BHSCRYSTALS.png");
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-size: cover;
-          background-attachment: fixed;
-      }
-    .container{max-width:var(--max-width);margin:0 auto;padding:24px}
-
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .logo{display:flex;align-items:center;gap:10px}
-    .logo img{height:60px}
-    nav{display:flex;gap:12px;align-items:center}
-    nav a{color:#ffffff;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
-    nav a:hover{background:var(--glass);color:var(--accent)}
-
-    .hero{display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:center;margin-top:18px}
-    .hero-card{
-      background: rgba(4,8,18,0.55); 
-      border-radius:20px;
-      padding:28px;
-      box-shadow:0 12px 40px rgba(0,0,0,0.65);
-      -webkit-backdrop-filter: blur(5px);
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255,255,255,0.04);
-    }
-    .hero h1{font-size:38px;margin:0 0 8px}
-    .hero p{color:var(--muted);margin:0 0 16px}
-    .cta{display:inline-block;background:var(--accent);color:#052033;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700}
-
-    .hero-image{border-radius:16px;overflow:hidden;height:100%;box-shadow:0 20px 40px rgba(0,0,0,0.6)}
-    .hero-image img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-
-      .gallery-section {
-          content-visibility: auto;
-          contain-intrinsic-size: 500px;
-          margin-top: 18px;
-      }
-    .gallery-wrap{
-      background: rgba(4,8,18,0.55);
-      border-radius:18px;
-      padding:18px;
-      -webkit-backdrop-filter: blur(5px);
-      backdrop-filter: blur(5px);
-      border:1px solid rgba(255,255,255,0.04);
-      box-shadow:0 12px 30px rgba(0,0,0,0.55);
-    }
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-
-    .card {
-      background: rgba(255,255,255,0.02);
-      padding: 12px;
-      border-radius: 14px;
-      overflow: hidden;
-    }
-
-    .card img {
+    .thumb {
       width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-      transform-origin: center;
+      height: 52vw;
+      max-height: 220px;
     }
-
-    .card:hover img {
-      transform: scale(1.05);
-    }
-    .card h4{margin:10px 0 6px}
-    .card p{margin:0;color:var(--muted)}
-
-    footer{margin-top:28px;padding:22px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
-    .platforms{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-    .platforms img{height:34px;filter:grayscale(0.05);opacity:0.95}
-    .footer-note{font-size:12px;color:var(--muted);margin-top:8px;text-align:right;width:100%;}
-
-    @media (max-width:880px){
-      .hero{grid-template-columns:1fr;}
-      .hero-image{height:auto;aspect-ratio:auto;width:100%}
-      .hero-image img{height:auto;object-fit:contain}
-      nav{display:none}
-    }
-
-    @media (max-width:480px){
-      .hero h1{font-size:28px}
-    }
-
-  </style>
+    .project-meta { text-align: left; }
+    nav { gap: 16px; }
+    .hero { height: 78vh; }
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">
-        <img src="studio.png" alt="">
-      </div>
 
-      <nav aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#Projects">Projects</a>
-        <a href="#MeetDevs">Meet the Devs!</a>
-      </nav>
-    </header>
+<header>
+  <span></span>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+  </nav>
+</header>
 
-    <main>
-      <section class="hero" id="home">
-        <div class="hero-card">
-          <h1>Introduction</h1>
-          <p>Hello! We are a very small group of passionate indie developers who for the last while have been working on a ton of Skylanders fangames!</p>
-          <p style="margin-top:8px">We eventually want to branch off and do our own things, We LOVE Skylanders more than we can express, but the world needs our talent, our ideas, and the worlds we make. Please, click below to check out some of our projects!</p>
-          <a class="cta" href="#Projects">EXPLORE PROJECTS</a>
-
-          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
-            <div style="background:rgba(135, 115, 226, 0.185);padding:10px;border-radius:12px;min-width:120px">
-              <strong>Game Engines We Use:</strong>
-              Unity, Orbit, Unreal Engine 5
-            </div>
-
-            
-          </div>
-        </div>
-
-        <div class="hero-image" aria-hidden="true">
-          <img src="Header6_26.png" alt=""PEAK IS BACK" - GECKO">
-        </div>
-      </section>
-      <section id="Projects" class="gallery-section">
-        <h2 style="margin:0 0 12px">Projects</h2>
-        <div class="gallery-wrap">
-          <div class="gallery">
-
-            <article class="card">
-                <a href="https://behaviorhackstudios.com/games/battle-field" target="_blank">
-                    <img src="BattleFieldThumbnail.png" alt="BattleFieldThumbnail">
-                </a>
-              <h4>Skylanders Battlefield</h4>
-              <p>The Skylanders Direct is canceled, here is what remains... (April fools)</p>
-            </article>
-
-            <article class="card">
-                <a href="https://behaviorhackstudios.com/rogue-island/" target="_blank">
-                    <img src="RogueIslandThumbnail.png" alt="RogueIslandThumbnail">
-                </a>
-                <h4>Skylanders Rogue Island</h4>
-                <p>WIP Web Game</p>
-            </article>
-
-            <article class="card">
-                <a href="https://gamejolt.com/games/skylandershirethisman/1006279" target="_blank">
-                    <img src="HireThisManThumbnail.png" alt="HireThisManThumbnail">
-                </a>
-              <h4>Skylanders Hire This Man!</h4>
-              <p>UE5 Test Made from the default vehicle template, and made in 6 hours (most of that time was learning the engine)</p>
-            </article>
-
-            <article class="card">
-                <a href="https://gamejolt.com/games/ChompyParty/1091049" target="_blank">
-                    <img src="ChompyPartyThumbnail.png" alt="HireThisManThumbnail">
-                </a>
-              <h4>Chompy Party</h4>
-              <p>An online Skylanders fangame made in only 3 weeks! Play as a variety of Chompies in this Bite-Sized Multiplayer experience!</p>
-            </article>
-          
-          </div>
-        </div>
-
-      </section>
-
-       <section id="ComingSoon" class="gallery-section">
-        <h2 style="margin:0 0 12px">Coming Soon</h2>
-        <div class="gallery-wrap">
-          <div class="gallery">
-
-
-
-            <article class="card">
-                <a href="https://x.com/gutterbeasts" target="_blank">
-                    <img src="GutterbeastsThumbnail.png" alt="GutterbeastsThumbnail">
-                </a>
-              <h4>Gutterbeasts</h4>
-              <p>Coming Soon - Dungeon Crawler set in a sewer, focusing on a post-apocalyptic mutant civilization.</p>
-            </article>
-
-            <article class="card">
-              <a href="https://gamejolt.com/games/FIVENIGHTSATGEX/977900" target="_blank">
-              <img src="FNAGThumbnail.png" alt="FNAGThumbnail">
-              </a>
-              <h4>Five Nights At Gex</h4>
-              <p>Coming Soon</p>
-            </article>
-
-            <article class="card">
-              <a href="https://youtu.be/xlHwZeUj6Jw?si=R0OYo8xhrbfOth87" target="_blank">
-              <img src="OpenSeasonThumbnail.png" alt="FNAGThumbnail">
-              </a>
-              <h4>Skylandeers Open Season</h4>
-              <p>Coming Soon - The world has been covered in BLOOM. It is up to you to collect the 5 Shojikeys, and dismantle the Dictadeership once and for all! </p>
-            </article>
-
-          </div>
-        </div>
-      </section>
-
-      </section>
-
-       <section id="MeetDevs" class="gallery-section">
-        <h2 style="margin:0 0 12px">Meet The Developers!</h2>
-        <div class="gallery-wrap">
-          <div class="gallery">
-
-
-
-            <article class="card">
-              <a href="https://www.youtube.com/@Shojiki64" target="_blank">
-              <img src="ShojikiThumbnail.png" alt="ShojikiThumbnail">
-              </a>
-              <h4>Shojiki</h4>
-              <p>Hello! I'm the head of this mess, So if you are Activision, and you are looking for the person to sue, I'm right here... This studio wouldn't be what it is without everyone involved, and I could not be more grateful to be a part of this with everyone. </p>
-            </article>
-
-            <article class="card">
-              <a href="https://www.youtube.com/@spyrosadventure" target="_blank">
-              <img src="MaffThumbnail.png" alt="MaffThumbnail">
-              </a>
-              <h4>Maff</h4>
-              <p>Hey! I do a lot of programming.. like an unhealthy amount. I make up for that by eating a chicken wrap every day. tfbRedOctaneTagScriptObjectList</p>
-            </article>
-
-            <article class="card">
-              <img src="BoneThumbnail.png" alt="BoneThumbnail">
-              <h4>Bone</h4>
-              <p>Unhealthy addiction to sugar fuels me to program for 9 hour sessions. My process of learning is doing three things I don't know at once and learning them all somehow. :TFBEugene:</p>
-            </article>
-
-            <article class="card">
-              <a href="https://www.youtube.com/@rudyie" target="_blank">
-              <img src="RudyieThumbnail.png" alt="RudyieThumbnail">
-              </a>
-              <h4>Rudyie</h4>
-              <p>
-                  Died due to lack of vocal cords, and taking forever to piece together a singular hud element from 200+ textures. Died doing what she loves best, absolutely nothing.
-              </p>
-            </article>
-
-            <article class="card">
-              <a href="https://www.youtube.com/@JesseTheLamest" target="_blank">
-              <img src="JesseThumbnail.gif" alt="JesseThumbnail">
-              </a>
-              <h4>JesseTheLamest</h4>
-              <p>I spilled Grape Kool-Aid on the file server I was hosting.</p>
-            </article>
-
-          </div>
-        </div>
-      </section>
-
-      <section id="Supporters" class="gallery-section">
-        <h2 style="margin:0 0 12px">Supporters</h2>
-        <div class="gallery-wrap">
-          <div class="gallery">
-
-            <article class="card">
-              <a href="https://www.youtube.com/channel/UCfGjkMM30CyxAmhX0um0YSw" target="_blank" style="color:#ffffff;text-decoration:none">
-                <h4 style="font-size:13px;font-weight:600">#1 - Memes And Music I Guess (W MAMIG)</h4>
-              </a>
-            </article>
-
-            <article class="card">
-              <h4 style="color:#ffffff;font-size:13px;font-weight:600">#2</h4>
-            </article>
-
-            <article class="card">
-              <h4 style="color:#ffffff;font-size:13px;font-weight:600">#3</h4>
-            </article>
-
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>
-          <strong>2026 Behavior Hack Studios</strong>
-        </div>
-
-      </div>
-      <div class="footer-note" aria-hidden="false">
-        * Behavior Hack Studios is not officially associated with Skylanders or ACTIVISION PUBLISHING inc. All copyrights belong to their respective owners.
-      </div>
-    </footer>
-
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <img class="hero-logo" src="studio.png" alt="Behavior Hack Studios">
+    <p class="lede">We're an indie studio, looking to create enjoyable experiences!</p>
   </div>
+</div>
+
+<section id="about">
+  <div class="section-head">
+    <h2>About us</h2>
+  </div>
+  <div class="about-grid">
+    <div>
+      <p>Behavior Hack Studios started as a fan-game studio, but we're looking to expand to our own IPs, as well as smaller side-projects.</p>
+      <p>As a studio with very little members, we love to hear community feedback, and interacting with fans is a big part of BHS.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>3</b><span>people, full-time</span></div>
+      <div class="stat"><b>1</b><span>game shipped</span></div>
+      <div class="stat"><b>100%</b><span>non-profit free games</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-head">
+    <h2>Projects</h2>
+  </div>
+  <div class="projects">
+    <a class="project" href="https://gamejolt.com/games/ChompyParty/1091049" target="_blank" rel="noopener">
+      <div class="thumb thumb--cypy"></div>
+      <div class="project-body">
+        <h3>Chompy Party</h3>
+        <p>Eat your friends! Or let them eat you? Have fun in PVP or Waves, with full online multiplayer!</p>
+      </div>
+      <div class="project-meta">Released · 2026</div>
+    </a>
+    <a class="project" href="https://behaviorhackstudios.com" target="_blank" rel="noopener">
+      <div class="thumb thumb--mystery"></div>
+      <div class="project-body">
+        <h3>?</h3>
+        <p>More info coming soon...</p>
+      </div>
+      <div class="project-meta">In Development · 2027</div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <a href="#">Contact: behaviorhackstudios@gmail.com</a>
+</footer>
+
 </body>
 </html>
