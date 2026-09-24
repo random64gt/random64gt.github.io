@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Behavior Hack Studios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #090A0E;
+    --bg-raised: #12141C;
+    --ink: #E9EAF0;
+    --ink-dim: #8B8FA3;
+    --accent: #4658E8;
+    --accent-dim: #2A3466;
+    --line: #21232E;
+    --sans: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+    --body: 'Inter', -apple-system, sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-sizing: border-box;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.55;
+  }
+  a { color: inherit; }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 6vw;
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    mix-blend-mode: difference;
+  }
+  .mark { height: 20px; opacity: 0.9; }
+  nav { display: flex; gap: 30px; font-family: var(--sans); font-size: 0.9rem; }
+  nav a { text-decoration: none; color: var(--ink); opacity: 0.75; transition: opacity 0.15s; }
+  nav a:hover { opacity: 1; }
+
+  .hero {
+    position: relative;
+    height: 92vh;
+    min-height: 560px;
+    margin-top: -84px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('BHSCRYSTALS.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(9,10,14,0.55) 0%, rgba(9,10,14,0.25) 40%, rgba(9,10,14,0.96) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    width: 100%;
+    padding: 0 6vw 8vh;
+  }
+  .hero-logo {
+    width: min(640px, 72vw);
+    height: auto;
+    display: block;
+    margin-bottom: 26px;
+    filter: drop-shadow(0 2px 30px rgba(0,0,0,0.4));
+  }
+  .hero p.lede {
+    font-family: var(--body);
+    font-size: 1.1rem;
+    color: var(--ink-dim);
+    max-width: 44ch;
+    margin: 0;
+  }
+
+  section { padding: 10vh 6vw; border-top: 1px solid var(--line); }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .section-head h2 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 1.9rem;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .section-head span {
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+    max-width: 34ch;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+  }
+  .about-grid p { max-width: 58ch; color: var(--ink-dim); font-size: 1.02rem; }
+  .about-grid p + p { margin-top: 18px; }
+  .stats { display: flex; flex-direction: column; gap: 26px; }
+  .stat b {
+    display: block;
+    font-family: var(--sans);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .stat span { color: var(--ink-dim); font-size: 0.9rem; }
+
+  .projects { display: flex; flex-direction: column; }
+  .project {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    gap: 89px;
+    align-items: center;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+  }
+  .project:first-child { border-top: none; }
+  .thumb {
+    width: 250px;
+    height: 150px;
+    flex-shrink: 0;
+    background-color: var(--bg-raised);
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 0 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .thumb--cypy { background-image: url('ChompyPartyThumbnail.png'); }
+  .thumb--deer { background-image: url('OpenSeasonThumbnail.png'); }
+  .project-body h3 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .project-body p { margin: 0; color: var(--ink-dim); max-width: 52ch; font-size: 0.98rem; }
+  .project-meta {
+    text-align: right;
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    font-family: var(--sans);
+  }
+
+  footer {
+    padding: 8vh 6vw;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--ink-dim);
+    font-size: 0.88rem;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+
+  @media (max-width: 720px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .project { grid-template-columns: 90px 1fr; }
+    .thumb { width: 90px; height: 62px; }
+    .project-meta { grid-column: 2; text-align: left; }
+    nav { gap: 16px; }
+    .hero { height: 78vh; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span></span>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <img class="hero-logo" src="studio.png" alt="Behavior Hack Studios">
+    <p class="lede">We're an indie studio, looking to create enjoyable experiences!</p>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-head">
+    <h2>About us</h2>
+  </div>
+  <div class="about-grid">
+    <div>
+      <p>Behavior Hack Studios started as a fan-game studio, but we're looking to expand to our own IPs, as well as smaller side-projects.</p>
+      <p>As a studio with very little members, we love to hear community feedback, and interacting with fans is a big part of BHS.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>3</b><span>people, full-time</span></div>
+      <div class="stat"><b>1</b><span>game shipped</span></div>
+      <div class="stat"><b>100%</b><span>non-profit free games</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-head">
+    <h2>Projects</h2>
+  </div>
+  <div class="projects">
+    <a class="project" href="https://gamejolt.com/games/ChompyParty/1091049" target="_blank" rel="noopener">
+      <div class="thumb thumb--cypy"></div>
+      <div class="project-body">
+        <h3>Chompy Party</h3>
+        <p>Eat your friends! Or let them eat you? Have fun in PVP or Waves, with full online multiplayer!</p>
+      </div>
+      <div class="project-meta">Released · 2026</div>
+    </a>
+    <a class="project" href="https://www.youtube.com/watch?v=xlHwZeUj6Jw" target="_blank" rel="noopener">
+      <div class="thumb thumb--deer"></div>
+      <div class="project-body">
+        <h3>Skylandeer's Open Season</h3>
+        <p>The world has been covered in BLOOM. It is up to you to collect the 5 Shojikeys, and dismantle the Dictadeership once and for all!</p>
+      </div>
+      <div class="project-meta">In Development</div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <a href="#">Contact: behaviorhackstudios@gmail.com</a>
+</footer>
+
+</body>
+</html>
