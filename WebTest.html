@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Behavior Hack Studios</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Behavior Hack Studios</title>
+  <meta name="description" content="We are an indie game studio working on Skylanders fan projects, and our own solo adventures!">
+<link rel="icon" type="image/png" sizes="512x512" href="https://behaviorhackstudios.com/studio-large.png">
+
+<meta property="og:title" content="Behavior Hack Studios">
+<meta property="og:description" content="We are an indie game studio working on our own solo adventures, and Skylanders Fan Projects!">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://behaviorhackstudios.com/">
+
+<meta property="og:image" content="https://behaviorhackstudios.com/studio-large.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+
+<meta name="twitter:card" content="summary_large_image">
+
 <style>
   :root {
     --bg: #090A0E;
@@ -186,9 +197,16 @@
 
   @media (max-width: 720px) {
     .about-grid { grid-template-columns: 1fr; }
-    .project { grid-template-columns: 90px 1fr; }
-    .thumb { width: 90px; height: 62px; }
-    .project-meta { grid-column: 2; text-align: left; }
+    .project {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .thumb {
+      width: 100%;
+      height: 52vw;
+      max-height: 220px;
+    }
+    .project-meta { text-align: left; }
     nav { gap: 16px; }
     .hero { height: 78vh; }
   }
